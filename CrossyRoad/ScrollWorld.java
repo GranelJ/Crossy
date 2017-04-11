@@ -3,17 +3,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
 
 import java.util.Calendar;
 
-/**
- * The ScrollWorld is used to construct the environment. 
- * It creates the moving space, the space ship, the asteroids
- * and the explosion
- * @author Zovisk Zonk (Some code from the ScrollWorld 
- * project at the Greenfoot gallery)
- * @version 1.0
- */
 public class ScrollWorld extends World 
 { 
-     private static final GreenfootImage bgImage = new GreenfootImage("space1.gif"); 
+     private static final GreenfootImage bgImage = new GreenfootImage("recypap.jpg"); 
      private static final int scrollSpeed = 2; 
      
      private GreenfootImage scrollingImage; 
@@ -40,7 +32,7 @@ public class ScrollWorld extends World
       */      
      public void act() 
      {
-            if (character.hitPiece() == false){
+            if (character.hitPiece() == false || character.hitVoiture() == false){
                 if(scrollPosition < 0) { 
                     scrollPosition = getWidth(); 
                 }
@@ -50,11 +42,14 @@ public class ScrollWorld extends World
                 if (Greenfoot.getRandomNumber(300) > (298 - (Score/5000))){
                     addObject (new Piece(), WIDTH, Greenfoot.getRandomNumber(HEIGHT));
                 }
+                if (Greenfoot.getRandomNumber(300) > (100 - (Score/5000))){
+                    addObject (new Voiture(), WIDTH, Greenfoot.getRandomNumber(HEIGHT));
+                }
             }
             else{
-                //spaceShipExplodes();
-                //gameOver();
+                gameOver();
             }
+            
      }
      
      /** 

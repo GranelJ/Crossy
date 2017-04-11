@@ -67,4 +67,14 @@ public class Character extends Actor
         }
     }  
     
+    public boolean hitVoiture()
+    {
+        Actor voiture = getOneObjectAtOffset(0, 0, Voiture.class);
+        if(voiture != null) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }  
 }

@@ -1,6 +1,5 @@
 #BlueJ class context
 comment0.target=ScrollWorld
-comment0.text=\r\n\ The\ ScrollWorld\ is\ used\ to\ construct\ the\ environment.\ \r\n\ It\ creates\ the\ moving\ space,\ the\ space\ ship,\ the\ asteroids\r\n\ and\ the\ explosion\r\n\ @author\ Zovisk\ Zonk\ (Some\ code\ from\ the\ ScrollWorld\ \r\n\ project\ at\ the\ Greenfoot\ gallery)\r\n\ @version\ 1.0\r\n
 comment1.params=
 comment1.target=ScrollWorld()
 comment2.params=
