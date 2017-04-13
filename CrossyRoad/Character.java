@@ -29,8 +29,19 @@ public class Character extends Actor
     
     public boolean hitCar()
     {
-        Actor car = getOneObjectAtOffset(0, 0, Car.class);
+        Actor car = getOneObjectAtOffset(0, 0, Car.class); //check if charater hit a car
         if(car != null){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+        public boolean hitCow()
+    {
+        Actor cow = getOneObjectAtOffset(0, 0, Cow.class); //check if charater hit a cow
+        if(cow != null){
             return true;
         }
         else {
@@ -40,6 +51,6 @@ public class Character extends Actor
     
     public boolean arrived()
     {
-        return(getY() == 0);
+        return(getY() == 0); //check if charater is arrived
     }
 }

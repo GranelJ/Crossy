@@ -29,8 +29,14 @@ public class MyWorld extends World
     
     public void act()
     {
-        if (character.hitCar() == true || character.arrived() == true) {
-            
+        /*if (Car.carnumber < 3){
+            car = new Car();
+            addObject (car, 0, 90);
+        } */
+        if (character.hitCar() == true || character.arrived() == true || character.hitCow() == true) {
+            if (character.hitCar() == true ||character.hitCow() == true){
+            Greenfoot.playSound("end.wav"); //play sound if dog hit obstacle
+            }
             Greenfoot.stop();
         }
     }
