@@ -1,40 +1,21 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
-import java.util.*;
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
- /** 
- * @author Zovisk Zonk (Some code from the ScrollWorld 
- * project at the Greenfoot gallery)
- * @version 1.0
+/**
+ * Write a description of class Character here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
  */
 public class Character extends Actor
 {
-    private int CounterFow = 0;
-    private int CounterSide = 0;    
-
-     /** 
-      * Controls the direction of the Character and plays the corresponding 
-      * sound based on the number of acts. The game gets very slow if the 
-      * sound is played at every act.
-      */     
+    /**
+     * Act - do whatever the Character wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
     public void act() 
     {
         if (Greenfoot.isKeyDown("up") ) {
             setLocation (getX(), getY() - 2);
-            if (CounterSide < 20){
-                CounterSide ++;
-            }
-            else{
-                CounterSide = 0;
-            }                
-        }
-        if (Greenfoot.isKeyDown("down") ) {
-            setLocation (getX(), getY() + 2);
-            if (CounterSide < 20){
-                CounterSide ++;
-            }
-            else{
-                CounterSide = 0;
-            }              
         }
 
         if (Greenfoot.isKeyDown("left") ) {
@@ -42,39 +23,23 @@ public class Character extends Actor
         }
         
         if (Greenfoot.isKeyDown("right") ) {
-            setLocation (getX() + 2, getY());  
-            if (CounterFow < 20){
-                CounterFow ++;
-            }
-            else{
-                CounterFow = 0;              
-            }
+            setLocation (getX() + 2, getY());       
         }
-        
-    }     
-
-     /** 
-      * Checks if the character has hit the piece
-      */     
-    public boolean hitPiece()
-    {
-        Actor piece = getOneObjectAtOffset(0, 0, Piece.class);
-        if(piece != null) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }  
+    }    
     
-    public boolean hitVoiture()
+    public boolean hitCar()
     {
-        Actor voiture = getOneObjectAtOffset(0, 0, Voiture.class);
-        if(voiture != null) {
+        Actor car = getOneObjectAtOffset(0, 0, Car.class);
+        if(car != null){
             return true;
         }
         else {
             return false;
         }
-    }  
+    }
+    
+    public boolean arrived()
+    {
+        return(getY() == 0);
+    }
 }
