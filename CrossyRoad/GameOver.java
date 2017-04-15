@@ -1,37 +1,23 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
-
-
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.Calendar;
-
 /**
- * The ScoreBoard is used to display results on the screen. It can display some
- * text and several numbers.
+ * Write a description of class Score here.
  * 
- * @author M Kolling
- * @version 1.0
+ * @author (your name) 
+ * @version (a version number or a date)
  */
 public class GameOver extends Actor
 {
     public static final float FONT_SIZE = 48.0f;
     public static final int WIDTH = 400;
     public static final int HEIGHT = 300;
-    
     /**
-     * Create a score board with dummy result for testing.
-     */
-    public GameOver()
-    {
-        this(100);
-    }
-
-    /**
-     * Create a score board for the final result.
-     */
-    public GameOver(int score)
-    {
-        makeImage("Game Over", "Score: ", score);
-    }
-
+    * Create a score board for the final result.
+    */
+   public GameOver(int score)
+   {
+       makeImage("GameOver","Score: ", score);
+   }
     /**
      * Make the score board image.
      */

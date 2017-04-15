@@ -11,6 +11,7 @@ public class MyWorld extends World
     private Character character;
     private Car car;
     private Cow cow;
+    private int Score = 0;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -29,15 +30,27 @@ public class MyWorld extends World
     
     public void act()
     {
-        /*if (Car.carnumber < 3){
-            car = new Car();
-            addObject (car, 0, 90);
-        } */
-        if (character.hitCar() == true || character.arrived() == true || character.hitCow() == true) {
-            if (character.hitCar() == true ||character.hitCow() == true){
-            Greenfoot.playSound("end.wav"); //play sound if dog hit obstacle
-            }
-            Greenfoot.stop();
+        if (Car.carnumber < 3*Character.level && Greenfoot.getRandomNumber(300) > (298 - (Score/5000))){
+            addObject (new Car(), 0, 90);
+            Car.carnumber += 1;
+        } 
+        if (Cow.cownumber < 3*Character.level && Greenfoot.getRandomNumber(300) > (298- (Score/5000))){
+            addObject (new Cow(), 0, 250);
+            Cow.cownumber += 1;
+        } 
+        if (character.hitCar() == true || character.hitCow() == true) {
+            gameOver();
+        }
+        else{
+            Score ++;
         }
     }
+    /** 
+    * Adds the GameOver object and terminates the game
+    */     
+    public void gameOver() {
+        Greenfoot.playSound("end.wav"); //play sound if dog hit obstacle
+        addObject(new GameOver(Score/10), getWidth()/2, getHeight()/2);
+        Greenfoot.stop();
+    }    
 }

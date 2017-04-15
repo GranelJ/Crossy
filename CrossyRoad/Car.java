@@ -18,7 +18,7 @@ public class Car extends Obstacle
       setLocation (getX() + 2, getY()); //move car
       if (getX() == 599){
         getWorld().removeObject(this);
-        carnumber += carnumber;
+        carnumber -= 1;
       }
     }   
 }
