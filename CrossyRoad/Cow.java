@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Cow extends Obstacle
 {
-    public static int cownumber = 0;
     /**
      * Act - do whatever the Cow wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -16,9 +15,13 @@ public class Cow extends Obstacle
     public void act() 
     {
       setLocation (getX() + 1, getY()); //move cow
+      checkWall();
+    }    
+    public void checkWall()
+    {
       if (getX() == 599){
         getWorld().removeObject(this);
-        cownumber -= 1;
-      }
-    }    
+        MyWorld.cownumber -= 1;
+      }        
+    }
 }

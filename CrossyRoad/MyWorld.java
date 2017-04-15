@@ -12,6 +12,8 @@ public class MyWorld extends World
     private Car car;
     private Cow cow;
     private int Score = 0;
+    public static int cownumber = 0;
+    public static int carnumber = 0;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -30,13 +32,13 @@ public class MyWorld extends World
     
     public void act()
     {
-        if (Car.carnumber < 3*Character.level && Greenfoot.getRandomNumber(300) > (298 - (Score/5000))){
+        if (carnumber < 3*Character.level && Greenfoot.getRandomNumber(300) > (298 - (Score/5000))){
             addObject (new Car(), 0, 90);
-            Car.carnumber += 1;
+            carnumber += 1;
         } 
-        if (Cow.cownumber < 3*Character.level && Greenfoot.getRandomNumber(300) > (298- (Score/5000))){
+        if (cownumber < 3*Character.level && Greenfoot.getRandomNumber(300) > (298- (Score/5000))){
             addObject (new Cow(), 0, 250);
-            Cow.cownumber += 1;
+            cownumber += 1;
         } 
         if (character.hitCar() == true || character.hitCow() == true) {
             gameOver();

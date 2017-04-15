@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Car extends Obstacle
 {
-    public static int carnumber = 0;
     /**
      * Act - do whatever the Car wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -16,9 +15,13 @@ public class Car extends Obstacle
     public void act() 
     {
       setLocation (getX() + 2, getY()); //move car
+      checkWall();
+    }  
+    public void checkWall()
+    {
       if (getX() == 599){
         getWorld().removeObject(this);
-        carnumber -= 1;
-      }
-    }   
+        MyWorld.carnumber -= 1;
+      }        
+    }
 }
